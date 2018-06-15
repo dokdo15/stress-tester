@@ -1,0 +1,35 @@
+{
+  "config": {
+    "target": "https://cobak.co.kr",
+    "phases": [
+      {
+        "duration": 60,
+        "arrivalRate": 100
+      }
+    ],
+    "defaults": {
+      "headers": {
+        "User-Agent": "Artillery"
+      }
+    },
+    "payload": {
+      "path": "./data.csv",
+      "fields": [
+        "id",
+        "password"
+      ]
+    }
+  },
+  "scenarios": [
+    {
+      "name": "post get api test",
+      "flow": [
+        {
+          "get": {
+            "url": "/api/v1/posts/post-18041"
+          }
+        }
+      ]
+    }
+  ]
+}
