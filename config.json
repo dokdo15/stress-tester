@@ -3,30 +3,47 @@
     "target": "https://cobak.co.kr",
     "phases": [
       {
-        "duration": 10,
-        "arrivalRate": 50
+        "duration": 30,
+        "arrivalRate": 100
       }
     ],
     "defaults": {
       "headers": {
-        "User-Agent": "Artillery"
+        "User-Agent": "Artillery",
+        "Authorization": "Token 940428b06f328f8a2aba037d8c93fb4967c5834d"
       }
     },
     "payload": {
       "path": "./data.csv",
       "fields": [
         "id",
-        "password"
+        "password",
+        "contents"
       ]
     }
   },
   "scenarios": [
     {
-      "name": "post get api test",
+      "weight": 9,
+      "name": "read post",
       "flow": [
         {
           "get": {
-            "url": "/api/v1/posts/post-18041"
+            "url": "/api/v1/posts/post-7053"
+          }
+        }
+      ]
+    },
+    {
+      "weight": 1,
+      "name": "write comment",
+      "flow": [
+        {
+          "post": {
+            "url": "/api/v1/posts/post-7053/comments",
+            "json": {
+              "contents": "{{contents}}"
+            }
           }
         }
       ]
