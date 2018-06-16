@@ -1,6 +1,6 @@
 {
   "config": {
-    "target": "https://cobak.co.kr",
+    "target": "http://localhost:8082",
     "phases": [
       {
         "duration": 30,
